@@ -2,7 +2,7 @@
   {
     "type": "car",
     "brand": "ferrari",
-    "speed": 500
+    "speed": 900
   },
   {
     "type": "car",
@@ -22,6 +22,11 @@
   {
     "type": "car",
     "brand": "renault",
-    "speed": 80
+    "speed": 50
+  },
+  {
+    "type": "boat",
+    "brand": "titanic",
+    "speed": 2000
   }
 ]
