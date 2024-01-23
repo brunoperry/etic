@@ -2,6 +2,8 @@ import Car from "./Car.js";
 import Motorcycle from "./Motorcycle.js";
 import Boat from "./Boat.js";
 
+let currentVehicle;
+
 const loadData = async (url) => {
 
   const request = await fetch(url);
@@ -13,16 +15,22 @@ const loadData = async (url) => {
 const createLiContent = (item) => {
   const button = document.createElement("button");
   button.innerText = item.brand;
+
   button.onclick = () => {
+
+    if(currentVehicle) {
+      currentVehicle.destroy();
+    }
+
     switch (item.type) {
       case "car":
-        new Car(item);
-        break;
+        currentVehicle = new Car(item);
+      break;
       case "motorcycle":
-        new Motorcycle(item);
+        currentVehicle = new Motorcycle(item);
         break;
       case "boat":
-        new Boat(item);
+        currentVehicle = new Boat(item);
         break;
     }
   }
@@ -38,10 +46,44 @@ const createList = (data) => {
   });
 }
 
-window.onload = async () => {
+// window.onload = async () => {
+
+//   const data = await loadData("data.json");
+//   data.sort((a, b) => a.type.localeCompare(b.type));
+
+//   const ul = createList(data);
+
+//   console.log("event listener created");
+// }
+
+
+let isPlaying = null;
+let playButton;
+const play = () => {
+  isPlaying = setInterval(() => {
+    console.log("new animation frame");
+  }, 100);
+  playButton.innerText = "Stop";
+  playButton.className = "red";
+}
+const stop = () => {
+  clearInterval(isPlaying);
+  isPlaying = null;
+  playButton.innerText = "Play";
+  playButton.className = "green";
+}
+
+window.addEventListener("load", async () => {
 
   const data = await loadData("data.json");
   data.sort((a, b) => a.type.localeCompare(b.type));
 
   const ul = createList(data);
-}
+
+  playButton = document.querySelector("#play_pause");
+  playButton.onclick = () => {
+
+    isPlaying ? stop() : play();
+    
+  }
+})
