@@ -4,6 +4,7 @@ export default class Vehicle {
   imagePath;
 
   #image;
+  #yPos = 0;
 
   constructor(data) {
 
@@ -12,6 +13,11 @@ export default class Vehicle {
     this.imagePath = data.image;
 
     this.build();
+  }
+  animate() {
+
+    this.#yPos += 1;
+    this.#image.style.transform = `translateY(${this.#yPos}px)`;
   }
 
   build() {

@@ -11,12 +11,15 @@ const loadData = async (url) => {
 
   return result;
 }
-
 const createLiContent = (item) => {
   const button = document.createElement("button");
   button.innerText = item.brand;
 
   button.onclick = () => {
+
+    if(playButton.className === "inactive") {
+      playButton.className = "";
+    }
 
     if(currentVehicle) {
       currentVehicle.destroy();
@@ -36,7 +39,6 @@ const createLiContent = (item) => {
   }
   return button;
 }
-
 const createList = (data) => {
   const ul = document.querySelector("ul");
   data.forEach(item => {
@@ -46,44 +48,31 @@ const createList = (data) => {
   });
 }
 
-// window.onload = async () => {
-
-//   const data = await loadData("data.json");
-//   data.sort((a, b) => a.type.localeCompare(b.type));
-
-//   const ul = createList(data);
-
-//   console.log("event listener created");
-// }
-
 
 let isPlaying = null;
 let playButton;
-const play = () => {
-  isPlaying = setInterval(() => {
-    console.log("new animation frame");
-  }, 100);
+const animate = () => {
+  currentVehicle.animate();
+  isPlaying = requestAnimationFrame(animate);
+}
+const playAnimation = () => {
+  isPlaying = requestAnimationFrame(animate);
   playButton.innerText = "Stop";
   playButton.className = "red";
 }
-const stop = () => {
-  clearInterval(isPlaying);
+const stopAnimation = () => {
+  cancelAnimationFrame(isPlaying);
   isPlaying = null;
   playButton.innerText = "Play";
   playButton.className = "green";
 }
 
-window.addEventListener("load", async () => {
-
+window.onload = async () => {
   const data = await loadData("data.json");
   data.sort((a, b) => a.type.localeCompare(b.type));
-
   const ul = createList(data);
-
   playButton = document.querySelector("#play_pause");
   playButton.onclick = () => {
-
-    isPlaying ? stop() : play();
-    
+    isPlaying ? stopAnimation() : playAnimation();
   }
-})
+}
