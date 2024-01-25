@@ -29,8 +29,7 @@ class AppTest2 {
             this.events[eventName] = [];
         }
         // e adicionar à lista
-        this.events[eventName].push(handler);
-    }
+        this.events[eventName].push(handler); }
 
     unsubscribe(event, handler) {
         if(this.events[event]) {
