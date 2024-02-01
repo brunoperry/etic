@@ -4,6 +4,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* width */
+::-webkit-scrollbar {
+    width: 2px;
+  }
 body {
     display: flex;
     flex-direction: column;
@@ -20,7 +24,6 @@ h1 {
 #images-container {
     flex: 1;
     overflow-y: scroll;
-    border: 2px solid red;
 }
 #audio-container {
     display: flex;
@@ -36,4 +39,17 @@ img {
 
 .active {
     border: 5px solid red;
+}
+
+.animal-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.feeder {
+    height: 20px;
+    background-color: #00ff00;
+    pointer-events: none;
 }

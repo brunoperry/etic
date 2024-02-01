@@ -1,3 +1,5 @@
+import Feeder from "./Feeder.js";
+
 export default class Animal {
 
     #callback;
@@ -8,12 +10,30 @@ export default class Animal {
         this.#data = data;
         this.#callback = callback;
 
+        this.#buildAnimalElement();
+    }
+
+    #buildAnimalElement() {
+
+        const feeder = new Feeder();
+
+        const div = document.createElement("div");
+        div.className = "animal-container";
+
+        const feedButton = document.createElement("button");
+        feedButton.onclick = () => feeder.reset();
+        feedButton.innerText = "Feed";
+
         this.#imageElem = document.createElement("img");
         this.#imageElem.src = this.#data.image;
         this.#imageElem.onclick = () => this.#callback();
 
         const container = document.querySelector("#images-container");
-        container.appendChild(this.#imageElem);
+
+        div.appendChild(this.#imageElem);
+        div.appendChild(feeder.view);
+        div.appendChild(feedButton);
+        container.appendChild(div);
     }
 
     introduce() {

@@ -4,7 +4,7 @@ export default class AudioPlayer {
     constructor() {
         this.#audio = document.querySelector("audio");
 
-        const button = document.querySelector("button");
+        const button = document.querySelector("#stop-button");
         button.onclick = () => {
             this.#stop();
         }
