@@ -57,3 +57,6 @@ console.log(test.sayHello());
 
 const test2 = new Test2("bruno js");
 console.log(test2.sayAge());
+
+
+numpy
