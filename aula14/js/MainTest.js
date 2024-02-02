@@ -7,4 +7,7 @@ export default class MainTest {
     sayHello() {
         return this.#name;
     }
+    sayAge() {
+        return "16 years old";
+    }
 }

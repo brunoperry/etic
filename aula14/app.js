@@ -51,5 +51,9 @@
 // console.log(testClass.sayHello());
 
 import Test from "./js/Test.js";
+import Test2 from "./js/Test2.js";
 const test = new Test("bruno js");
 console.log(test.sayHello());
+
+const test2 = new Test2("bruno js");
+console.log(test2.sayAge());
