@@ -1,0 +1,30 @@
+[
+  {
+    "type": "Sculpture",
+    "title": "Unique Forms of Continuity in Space",
+    "artist": "Umberto Boccioni",
+    "material": "plaster",
+    "media": "https://media.tate.org.uk/art/images/work/T/T01/T01589_10.jpg"
+  },
+  {
+    "type": "Music",
+    "title": "Last block",
+    "artist": "GMS",
+    "material": "audio",
+    "media": "https://api.brunoperry.net/mnt/public/music/eletronic/psy/GMS%20-%20Chaos%20Laboratory%20(Re-Realise)/05.%20The%20Last%20Block.mp3"
+  },
+  {
+    "type": "Photography",
+    "title": "New York, NY",
+    "artist": "Vivian Maier",
+    "material": "paper",
+    "media": "https://www.vivianmaier.com/wp-content/uploads/2013/11/VM1955W03424-06-MC.jpg"
+  },
+  {
+    "type": "Painting",
+    "title": "Nose dive on the city",
+    "artist": "Tullio Crali",
+    "material": "canvas",
+    "media": "https://carlsword.files.wordpress.com/2013/08/nose-dive-city3.jpg"
+  }
+]

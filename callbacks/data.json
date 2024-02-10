@@ -1,0 +1,17 @@
+[
+  {
+    "title": "title 1",
+    "artist": "artist 1",
+    "color": "red"
+  },
+  {
+    "title": "title 2",
+    "artist": "artist 2",
+    "color": "green"
+  },
+  {
+    "title": "title 3",
+    "artist": "artist 3",
+    "color": "blue"
+  }
+]
