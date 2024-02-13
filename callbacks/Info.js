@@ -2,11 +2,17 @@ export default class Info {
 
     #title;
     #artist;
-    constructor() {
+    #callback;
+    constructor(callback) {
 
+        this.#callback = callback;
         const infoContainer = document.querySelector("#info-container");
         this.#title = infoContainer.querySelector("h2");
         this.#artist = infoContainer.querySelector("h3");
+
+        this.#artist.onclick = () => {
+            this.#callback();
+        }
     }
 
     udpate(data) {

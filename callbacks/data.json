@@ -2,7 +2,8 @@
   {
     "title": "title 1",
     "artist": "artist 1",
-    "color": "red"
+    "color": "red",
+    "audio": "music.mp3"
   },
   {
     "title": "title 2",
